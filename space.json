@@ -1,0 +1,8 @@
+{
+  "runtime": "typescript",
+  "platformVersion": 28,
+  "entry": "client/dist/index.html",
+  "name": "Personal Dashboard",
+  "slug": "personal-dashboard",
+  "managedCronJobs": ["personal-dashboard-daily-reset"]
+}

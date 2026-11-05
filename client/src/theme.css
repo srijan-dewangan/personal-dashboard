@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap');
+@import "tailwindcss";
+@import "tailwindcss-safe-area";
+
+@theme {
+  --text-xs: 12px; --text-xs--line-height: 16px;
+  --text-sm: 14px; --text-sm--line-height: 20px;
+  --text-base: 16px; --text-base--line-height: 24px;
+  --text-lg: 18px; --text-lg--line-height: 28px;
+  --text-xl: 20px; --text-xl--line-height: 28px;
+  --text-2xl: 24px; --text-2xl--line-height: 32px;
+  --text-3xl: 30px; --text-3xl--line-height: 36px;
+  --text-4xl: 36px; --text-4xl--line-height: 40px;
+  --font-sans: "DM Sans", ui-sans-system, system-ui, sans-serif;
+  --font-serif: "DM Serif Display", Georgia, serif;
+}
+
+:root {
+  color-scheme: light dark;
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --surface2: #f3ecdd;
+  --text: #1c2333;
+  --dim: #6f6a5e;
+  --border: #e6ddd0;
+  --accent: #14532d;
+  --accent2: #d97706;
+  --danger: #c2410c;
+  --radius: 16px;
+  --space-surface: var(--surface);
+  --space-surface-alt: var(--surface2);
+  --space-muted: var(--dim);
+  --space-border: var(--border);
+  --space-accent: var(--accent);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14120e;
+    --surface: #1f1d18;
+    --surface2: #2a2720;
+    --text: #f2ede3;
+    --dim: #a8a29a;
+    --border: #353126;
+    --accent: #4ade80;
+    --accent2: #fbbf24;
+    --danger: #fb923c;
+  }
+}
+body { font-family: var(--font-sans); background: var(--bg); color: var(--text); }
+.font-serif-d { font-family: var(--font-serif); }
