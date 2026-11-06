@@ -1,27 +1,69 @@
 # Personal Dashboard
 
-A single-page personal dashboard built with Muse.
+A single-page personal dashboard with a to-do list, focus timer, daily
+goals tracker, quick notes, bookmarks, habits & streaks, and live weather.
 
-## What it includes
+This is the standalone version of the dashboard. It runs entirely in your
+browser — there is no backend, no database to set up, and no API key
+needed. All of your data is saved in your browser's localStorage.
 
-- Todo list with priorities and filters
-- Focus timer with 15, 25, and 50 minute presets, or a custom time
-- Daily goals tracker with progress bars that reset every morning at 6 AM IST
-- Quick notes, colour-coded, with pin and search
-- Bookmarks grouped by category
-- Habits and streaks
-- Live weather, defaulting to Delhi and changeable to any city (Open-Meteo, no API key)
-- Morning overview with task, goal, and focus stats
+## Features
 
-## How it is built
+- **To-do list** — priorities (high / medium / low) and all / active / done filters
+- **Focus timer** — 15 / 25 / 50 minute presets or a custom length; finished sessions are saved automatically
+- **Daily goals** — progress bars with targets and units; progress resets every morning (Asia/Kolkata date), targets stay
+- **Quick notes** — colour-coded, pin and search
+- **Bookmarks** — grouped by category
+- **Habits & streaks** — tap to check in for today; streaks count consecutive days
+- **Live weather** — defaults to Delhi, changeable to any city in the UI; fetched from Open-Meteo (no API key), cached for up to 3 hours
+- **Morning overview** — tasks complete %, daily goals %, focus minutes today / all time
 
-- React client in `client/`
-- Server actions in `server/src/actions.ts`
-- Schema in `server/src/schema.ts`
-- Drizzle SQL migrations in `drizzle/`
+## Prerequisites
 
-This is a Muse TypeScript space (see `space.json` and `AGENTS.md`). It runs in Muse with its space runtime and database. It is not a standalone Vite app, so cloning this repo alone will not run it without that runtime.
+- Node.js 18 or newer
+- npm (comes with Node.js)
 
-## Data
+Check yours with:
 
-User data (todos, notes, bookmarks, habits, focus sessions) lives in the app database and is not included in this repo. No secrets are included.
+```bash
+node --version
+npm --version
+```
+
+## Run it locally
+
+```bash
+git clone https://github.com/srijan-dewangan/personal-dashboard.git
+cd personal-dashboard
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173 in your browser.
+
+## Build for production
+
+```bash
+npm run build
+npm run preview
+```
+
+`npm run build` type-checks the project and produces a production build in
+`dist/`. `npm run preview` serves that build locally (by default at
+http://localhost:4173).
+
+## Your data
+
+Everything you add — tasks, goals, notes, bookmarks, habits, focus
+sessions — is stored in your browser under the localStorage key
+`personal-dashboard-v1`. It stays on your own machine and is not sent
+anywhere, except for weather requests, which go directly from your browser
+to Open-Meteo (`api.open-meteo.com` and `geocoding-api.open-meteo.com`)
+when you load the dashboard or change city. Clearing your browser data
+for this site will erase your dashboard data.
+
+## Tech stack
+
+- Vite + React 19 + TypeScript
+- Tailwind CSS 4
+- TanStack React Query
